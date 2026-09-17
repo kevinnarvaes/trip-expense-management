@@ -1,0 +1,84 @@
+table expenses
+	lineageTag: 23f9ed45-77ac-4f9e-bb31-8a17c2c6ce37
+
+	column expense_id
+		dataType: string
+		lineageTag: 762be5d7-fa35-4902-837c-5cc78b391b4b
+		summarizeBy: none
+		sourceColumn: expense_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column trip_id
+		dataType: string
+		lineageTag: 0e9be2a8-8595-41b5-bf3c-2e927efeb2fc
+		summarizeBy: none
+		sourceColumn: trip_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column trip
+		dataType: string
+		lineageTag: 4751b157-8c93-4c4e-a562-362df2f6b06f
+		summarizeBy: none
+		sourceColumn: trip
+
+		annotation SummarizationSetBy = Automatic
+
+	column reason
+		dataType: string
+		lineageTag: ba0d01ee-c5f2-4b2c-8885-81b575601090
+		summarizeBy: none
+		sourceColumn: reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9b62492e-b5c3-46bc-b14f-c1d6fd7a46b1
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column type
+		dataType: string
+		lineageTag: 0a1169a4-3e5d-4950-b2ec-43ea790b03fc
+		summarizeBy: none
+		sourceColumn: type
+
+		annotation SummarizationSetBy = Automatic
+
+	column product
+		dataType: string
+		lineageTag: 174b4ceb-bcd1-4ecd-9bd8-0e9e8f56f3bc
+		summarizeBy: none
+		sourceColumn: product
+
+		annotation SummarizationSetBy = Automatic
+
+	column debtor
+		dataType: string
+		lineageTag: 8278a4b9-8bad-4aff-b95f-76b334089f76
+		summarizeBy: none
+		sourceColumn: debtor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition expenses = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\GitHub\trip-expense-management\data-pipelines\database\silver\expenses.csv"),[Delimiter=",", Columns=8, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"expense_id", type text}, {"trip_id", type text}, {"trip", type text}, {"reason", type text}, {"date", type date}, {"type", type text}, {"product", type text}, {"debtor", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

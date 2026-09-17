@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Expenses Tracker Mobile"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ebd95aff-3428-46eb-9b88-1edffafec980"
+  }
+}

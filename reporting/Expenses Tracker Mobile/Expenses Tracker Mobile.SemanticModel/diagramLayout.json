@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 198,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 579,
+            "y": 546
+          },
+          "nodeIndex": "trips",
+          "nodeLineageTag": "5f83268e-9fd8-4018-a857-9ffeae9620af",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 298,
+            "y": 181
+          },
+          "nodeIndex": "balances",
+          "nodeLineageTag": "05dedd8c-c8ca-4d8f-9db5-6c103b62bdc2",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 870,
+            "y": 189
+          },
+          "nodeIndex": "expense_shares",
+          "nodeLineageTag": "4347ab67-c0f6-4f18-9649-6daa44d63db2",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1179,
+            "y": 202
+          },
+          "nodeIndex": "expenses",
+          "nodeLineageTag": "23f9ed45-77ac-4f9e-bb31-8a17c2c6ce37",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 580,
+            "y": 187
+          },
+          "nodeIndex": "payments",
+          "nodeLineageTag": "f6230cc2-6cb1-494c-aebb-c7b81acc9814",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 600,
+            "y": 0
+          },
+          "nodeIndex": "travelers",
+          "nodeLineageTag": "9323f333-99bc-49ef-8cee-d33c5a3fdc51",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1184,
+            "y": 538
+          },
+          "nodeIndex": "Metrics",
+          "nodeLineageTag": "9ea11599-2b96-4cf9-89bb-145f1927747c",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 1
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

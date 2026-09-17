@@ -1,0 +1,58 @@
+expense_id,trip_id,trip,reason,date,type,product,debtor,lander,currency,rate,monto,monto_lps,monto_usd
+E0001,T001,SPS Sep 2026,Airbnb,2026-09-04,Amenidades,Airbnb,Todos,Jimmy,$,27,260.19,7025.13,260.19
+E0002,T001,SPS Sep 2026,Wendys,2026-09-04,Restaurantes,BAC MUSH M,Ken,Jimmy,L,27,239.0,239.0,8.851851851851851
+E0003,T001,SPS Sep 2026,Wendys,2026-09-04,Restaurantes,DAVE C,Jimmy,Jimmy,L,27,219.0,219.0,8.11111111111111
+E0004,T001,SPS Sep 2026,Wendys,2026-09-04,Restaurantes,AGRANDADO,Ken,Jimmy,L,27,26.0,26.0,0.9629629629629628
+E0005,T001,SPS Sep 2026,Wendys,2026-09-04,Restaurantes,#8 10 NUGG,Megan,Jimmy,L,27,189.0,189.0,7.0
+E0006,T001,SPS Sep 2026,Wendys,2026-09-04,Restaurantes,WRAPS POLL,Kevin,Jimmy,L,27,199.0,199.0,7.37037037037037
+E0007,T001,SPS Sep 2026,Wendys,2026-09-04,Restaurantes,QUESIHAMBU,Kevin,Jimmy,L,27,149.0,149.0,5.518518518518518
+E0008,T001,SPS Sep 2026,Pedidos Ya,2026-09-04,Compras Super,Agua y Fresco,Todos,Kevin,L,27,351.31,351.31,13.011481481481482
+E0009,T001,SPS Sep 2026,Expresso Americano,2026-09-05,Restaurantes,Caffe Latte 12 Oz,Jimmy,Jimmy,L,27,95.0,95.0,3.5185185185185186
+E0010,T001,SPS Sep 2026,Expresso Americano,2026-09-05,Restaurantes,Caffe Latte 16 Oz,Kevin,Jimmy,L,27,77.0,77.0,2.851851851851852
+E0011,T001,SPS Sep 2026,Expresso Americano,2026-09-05,Restaurantes,Americano Frio de 12 Oz,Ken,Jimmy,L,27,50.0,50.0,1.851851851851852
+E0012,T001,SPS Sep 2026,Expresso Americano,2026-09-05,Restaurantes,English Muffin Salchicha y Huevo,Kevin,Jimmy,L,27,71.0,71.0,2.6296296296296298
+E0013,T001,SPS Sep 2026,Expresso Americano,2026-09-05,Restaurantes,Refresher Fresa Con Limon 16 Oz,Megan,Jimmy,L,27,80.0,80.0,2.962962962962963
+E0014,T001,SPS Sep 2026,Brisa Marina,2026-09-05,Restaurantes,Filete de pez,Jimmy,Jimmy,L,27,350.0,350.0,12.962962962962964
+E0015,T001,SPS Sep 2026,Brisa Marina,2026-09-05,Restaurantes,Coca Zero,Jimmy,Jimmy,L,27,35.0,35.0,1.2962962962962965
+E0016,T001,SPS Sep 2026,Brisa Marina,2026-09-05,Restaurantes,Coca Zero,Kevin,Jimmy,L,27,35.0,35.0,1.2962962962962965
+E0017,T001,SPS Sep 2026,Brisa Marina,2026-09-05,Restaurantes,Coca Zero,Megan,Jimmy,L,27,35.0,35.0,1.2962962962962965
+E0018,T001,SPS Sep 2026,Brisa Marina,2026-09-05,Restaurantes,Hamburguesa,Megan,Jimmy,L,27,250.0,250.0,9.25925925925926
+E0019,T001,SPS Sep 2026,Brisa Marina,2026-09-05,Restaurantes,Pollo,Kevin,Jimmy,L,27,230.0,230.0,8.518518518518519
+E0020,T001,SPS Sep 2026,Brisa Marina,2026-09-05,Restaurantes,Coca Normal,Ken,Jimmy,L,27,35.0,35.0,1.2962962962962965
+E0021,T001,SPS Sep 2026,Brisa Marina,2026-09-05,Restaurantes,Camarón,Ken,Jimmy,L,27,330.0,330.0,12.22222222222222
+E0022,T001,SPS Sep 2026,Brisa Marina,2026-09-05,Restaurantes,Michelada,Ken,Jimmy,L,27,160.0,160.0,5.925925925925926
+E0023,T001,SPS Sep 2026,Brisa Marina,2026-09-05,Restaurantes,Agua,Kevin,Jimmy,L,27,35.0,35.0,1.2962962962962965
+E0024,T001,SPS Sep 2026,Brisa Marina,2026-09-05,Restaurantes,Propina,Todos,Jimmy,L,27,50.0,50.0,1.851851851851852
+E0025,T001,SPS Sep 2026,Playa,2026-09-05,Entretenimiento,Entrada Playa,Todos,Ken,L,27,400.0,400.0,14.814814814814817
+E0026,T001,SPS Sep 2026,Cover,2026-09-05,Entretenimiento,JB+1D,Todos,Jimmy,L,27,600.0,600.0,22.22222222222222
+E0027,T001,SPS Sep 2026,CityPark,2026-09-05,Restaurantes,NACHOS,Todos,Jimmy,L,27,250.0,250.0,9.25925925925926
+E0028,T001,SPS Sep 2026,CityPark,2026-09-05,Restaurantes,SALVA VIDA 1,Ken,Jimmy,L,27,210.0,210.0,7.777777777777778
+E0029,T001,SPS Sep 2026,CityPark,2026-09-05,Restaurantes,SALVA VIDA 2,Kevin,Jimmy,L,27,210.0,210.0,7.777777777777778
+E0030,T001,SPS Sep 2026,CityPark,2026-09-05,Restaurantes,BOTE CON AGUA 1,Kevin,Jimmy,L,27,75.0,75.0,2.7777777777777777
+E0031,T001,SPS Sep 2026,CityPark,2026-09-05,Restaurantes,BOTE CON AGUA 2,Jimmy,Jimmy,L,27,75.0,75.0,2.7777777777777777
+E0032,T001,SPS Sep 2026,CityPark,2026-09-05,Restaurantes,MARGARITA LIMON,Megan,Jimmy,L,27,360.0,360.0,13.333333333333334
+E0033,T001,SPS Sep 2026,CityPark,2026-09-05,Restaurantes,PIÑA COLADA,Jimmy,Jimmy,L,27,180.0,180.0,6.666666666666667
+E0034,T001,SPS Sep 2026,CityPark,2026-09-05,Restaurantes,LONG ISLAND 1,Kevin,Jimmy,L,27,180.0,180.0,6.666666666666667
+E0035,T001,SPS Sep 2026,CityPark,2026-09-05,Restaurantes,LONG ISLAND 2,Jimmy,Jimmy,L,27,180.0,180.0,6.666666666666667
+E0036,T001,SPS Sep 2026,CityPark,2026-09-05,Restaurantes,PROPINA,Todos,Jimmy,L,27,170.04,170.04,6.297777777777777
+E0037,T001,SPS Sep 2026,Uber CityPark,2026-09-05,Transporte,Uber,Todos,Megan,L,27,135.98,135.98,5.036296296296296
+E0038,T001,SPS Sep 2026,Uber CityPark,2026-09-05,Transporte,Uber,Todos,Jimmy,L,27,92.0,92.0,3.4074074074074074
+E0039,T001,SPS Sep 2026,Uber CityPark,2026-09-05,Transporte,Uber,Todos,Megan,L,27,91.12,91.12,3.374814814814815
+E0040,T001,SPS Sep 2026,iHop,2026-09-06,Restaurantes,Breakfast Sampler,Jimmy,Jimmy,L,27,275.0,275.0,10.185185185185183
+E0041,T001,SPS Sep 2026,iHop,2026-09-06,Restaurantes,Strawberry Lemonade Splash,Megan,Jimmy,L,27,75.0,75.0,2.7777777777777777
+E0042,T001,SPS Sep 2026,iHop,2026-09-06,Restaurantes,Te Helado,Jimmy,Jimmy,L,27,75.0,75.0,2.7777777777777777
+E0043,T001,SPS Sep 2026,iHop,2026-09-06,Restaurantes,Burrito de 3 Carnes,Megan,Jimmy,L,27,285.0,285.0,10.555555555555555
+E0044,T001,SPS Sep 2026,iHop,2026-09-06,Restaurantes,Burrito Con Chorizo,Ken,Jimmy,L,27,89.0,89.0,3.2962962962962963
+E0045,T001,SPS Sep 2026,iHop,2026-09-06,Restaurantes,Horchata Mucho,Ken,Jimmy,L,27,89.0,89.0,3.2962962962962963
+E0046,T001,SPS Sep 2026,iHop,2026-09-06,Restaurantes,New York Cheesecake Pancake,Ken,Jimmy,L,27,175.0,175.0,6.481481481481482
+E0047,T001,SPS Sep 2026,iHop,2026-09-06,Restaurantes,Never Empty Coffee,Ken,Jimmy,L,27,45.0,45.0,1.6666666666666667
+E0048,T001,SPS Sep 2026,iHop,2026-09-06,Restaurantes,Philly Cheese Steak Stacker,Kevin,Jimmy,L,27,299.0,299.0,11.074074074074074
+E0049,T001,SPS Sep 2026,iHop,2026-09-06,Restaurantes,Cafe Latte,Kevin,Jimmy,L,27,45.0,45.0,1.6666666666666667
+E0050,T001,SPS Sep 2026,iHop,2026-09-06,Restaurantes,Leche Deslactosada,Kevin,Jimmy,L,27,5.0,5.0,0.1851851851851851
+E0051,T001,SPS Sep 2026,Starbucks ,2026-09-06,Restaurantes,Iced Caramel Macchiato,Ken,Jimmy,L,27,116.0,116.0,4.296296296296297
+E0052,T001,SPS Sep 2026,Starbucks ,2026-09-06,Restaurantes,Strawberry Cream Frappuccino,Kevin,Jimmy,L,27,137.0,137.0,5.074074074074074
+E0053,T001,SPS Sep 2026,Starbucks ,2026-09-06,Restaurantes,Mango Dragon Lemon,Jimmy,Jimmy,L,27,151.0,151.0,5.592592592592593
+E0054,T001,SPS Sep 2026,Starbucks ,2026-09-06,Restaurantes,Iced Chai Latte XL,Megan,Jimmy,L,27,130.0,130.0,4.814814814814815
+E0055,T001,SPS Sep 2026,KatraChamoy,2026-09-06,Restaurantes,Pollo Chuco,Todos,Jimmy,L,27,285.0,285.0,10.555555555555555
+E0056,T001,SPS Sep 2026,Gasolina,2026-09-06,Restaurantes,Gasolina Ida,Todos,Jimmy,L,27,1800.0,1800.0,66.66666666666667
+E0057,T001,SPS Sep 2026,Gasolina,2026-09-06,Restaurantes,Gasolina Vuelta,Todos,Jimmy,L,27,823.0,823.0,30.48148148148148

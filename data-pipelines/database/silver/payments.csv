@@ -1,0 +1,4 @@
+trip_id,trip,debtor,lander,currency,rate,monto,monto_lps,monto_usd
+T001,SPS Sep 2026,Kevin,Jimmy,L,27,4414.09,4414.09,163.48481481481485
+T001,SPS Sep 2026,Megan,Jimmy,L,27,2098.0,2098.0,77.70370370370371
+T001,SPS Sep 2026,Ken,Jimmy,L,27,3000.0,3000.0,111.11111111111111
