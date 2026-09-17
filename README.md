@@ -39,4 +39,7 @@ Both PBIP reports use the `p_gold_folder` Power Query parameter for their CSV
 source. It currently points to this repository's Gold output folder. After
 moving or cloning the repository, update that one parameter to the local
 `data-pipelines\database\gold` directory before refreshing the report.
+
+See [Future Features](FUTURE_FEATURES.md) for the planned database, mock-data,
+Google Sheets, and GitHub Pages enhancements.
 An end-to-end data platform for managing shared trip expenses, demonstrating Python ETL, SQL transformations, PostgreSQL, Airflow orchestration, and Power BI analytics.
