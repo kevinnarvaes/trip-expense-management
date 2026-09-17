@@ -1,0 +1,114 @@
+table fact_expense_shares
+
+	column expense_share_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: expense_share_id
+
+	column expense_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: expense_id
+
+	column trip_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: trip_id
+
+	column traveler_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: traveler_id
+
+	column lender_traveler_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: lender_traveler_id
+
+	column trip
+		dataType: string
+		summarizeBy: none
+		sourceColumn: trip
+
+	column reason
+		dataType: string
+		summarizeBy: none
+		sourceColumn: reason
+
+	column expense_date
+		dataType: dateTime
+		formatString: Long Date
+		summarizeBy: none
+		sourceColumn: expense_date
+
+	column expense_type
+		dataType: string
+		summarizeBy: none
+		sourceColumn: expense_type
+
+	column product
+		dataType: string
+		summarizeBy: none
+		sourceColumn: product
+
+	column currency
+		dataType: string
+		summarizeBy: none
+		sourceColumn: currency
+
+	column exchange_rate
+		dataType: double
+		summarizeBy: none
+		sourceColumn: exchange_rate
+
+	column expense_amount_original
+		dataType: double
+		summarizeBy: none
+		sourceColumn: expense_amount_original
+
+	column expense_amount_lps
+		dataType: double
+		summarizeBy: none
+		sourceColumn: expense_amount_lps
+
+	column expense_amount_usd
+		dataType: double
+		summarizeBy: none
+		sourceColumn: expense_amount_usd
+
+	column is_shared_expense
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_shared_expense
+
+	column participant_count
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: participant_count
+
+	column share_original
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: share_original
+
+	column share_lps
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: share_lps
+
+	column share_usd
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: share_usd
+
+	partition fact_expense_shares = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(p_gold_folder & "\fact_expense_shares.csv"), [Delimiter = ",", Columns = 20, QuoteStyle = QuoteStyle.None]),
+				PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				ChangedType = Table.TransformColumnTypes(PromotedHeaders, {{"expense_share_id", type text}, {"expense_id", type text}, {"trip_id", type text}, {"traveler_id", type text}, {"lender_traveler_id", type text}, {"trip", type text}, {"reason", type text}, {"expense_date", type date}, {"expense_type", type text}, {"product", type text}, {"currency", type text}, {"exchange_rate", type number}, {"expense_amount_original", type number}, {"expense_amount_lps", type number}, {"expense_amount_usd", type number}, {"is_shared_expense", type logical}, {"participant_count", Int64.Type}, {"share_original", type number}, {"share_lps", type number}, {"share_usd", type number}})
+			in
+				ChangedType
+
+	annotation PBI_ResultType = Table

@@ -4,43 +4,56 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 198,
+        "x": 523.49627549999934,
         "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 579,
-            "y": 546
+            "x": 1722.5545439999994,
+            "y": 157.31253100000043
           },
-          "nodeIndex": "trips",
-          "nodeLineageTag": "5f83268e-9fd8-4018-a857-9ffeae9620af",
+          "nodeIndex": "Metrics",
+          "nodeLineageTag": "9ea11599-2b96-4cf9-89bb-145f1927747c",
           "size": {
-            "height": 200,
+            "height": 104,
             "width": 234
           },
-          "zIndex": 7
+          "zIndex": 6
         },
         {
           "location": {
-            "x": 298,
-            "y": 181
+            "x": 1147.3584757235431,
+            "y": 0
           },
-          "nodeIndex": "balances",
-          "nodeLineageTag": "05dedd8c-c8ca-4d8f-9db5-6c103b62bdc2",
+          "nodeIndex": "dim_travelers",
+          "nodeLineageTag": "541ef9ad-3261-4ebd-bcd0-5d7f02ee9d0f",
           "size": {
-            "height": 272,
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1117.2328653896673,
+            "y": 710.74412181076036
+          },
+          "nodeIndex": "dim_trips",
+          "nodeLineageTag": "643588f0-4b3f-4283-8bf4-06191dafe4ff",
+          "size": {
+            "height": 200,
             "width": 234
           },
           "zIndex": 2
         },
         {
           "location": {
-            "x": 870,
-            "y": 189
+            "x": 1149.1507464412616,
+            "y": 290.46377052410384
           },
-          "nodeIndex": "expense_shares",
-          "nodeLineageTag": "4347ab67-c0f6-4f18-9649-6daa44d63db2",
+          "nodeIndex": "fact_balances",
+          "nodeLineageTag": "b78ab649-9db7-46c6-b90f-0a078fc6938c",
           "size": {
             "height": 272,
             "width": 234
@@ -49,59 +62,33 @@
         },
         {
           "location": {
-            "x": 1179,
-            "y": 202
+            "x": 878.08872700000029,
+            "y": 264.97671947589595
           },
-          "nodeIndex": "expenses",
-          "nodeLineageTag": "23f9ed45-77ac-4f9e-bb31-8a17c2c6ce37",
+          "nodeIndex": "fact_expense_shares",
+          "nodeLineageTag": "1d177f02-74c0-46f2-b1ca-ec2cc4cb85fd",
           "size": {
-            "height": 272,
+            "height": 300,
             "width": 234
           },
           "zIndex": 4
         },
         {
           "location": {
-            "x": 580,
-            "y": 187
+            "x": 1414.8776417412059,
+            "y": 256.64810339762988
           },
-          "nodeIndex": "payments",
-          "nodeLineageTag": "f6230cc2-6cb1-494c-aebb-c7b81acc9814",
+          "nodeIndex": "fact_payments",
+          "nodeLineageTag": "48d05413-634c-48b0-82e7-49bebaa555a5",
           "size": {
-            "height": 272,
-            "width": 234
-          },
-          "zIndex": 6
-        },
-        {
-          "location": {
-            "x": 600,
-            "y": 0
-          },
-          "nodeIndex": "travelers",
-          "nodeLineageTag": "9323f333-99bc-49ef-8cee-d33c5a3fdc51",
-          "size": {
-            "height": 128,
+            "height": 300,
             "width": 234
           },
           "zIndex": 5
-        },
-        {
-          "location": {
-            "x": 1184,
-            "y": 538
-          },
-          "nodeIndex": "Metrics",
-          "nodeLineageTag": "9ea11599-2b96-4cf9-89bb-145f1927747c",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 1
         }
       ],
       "name": "All tables",
-      "zoomValue": 100,
+      "zoomValue": 56.447393005377812,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

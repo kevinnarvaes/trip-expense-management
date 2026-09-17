@@ -38,6 +38,14 @@ from pathlib import Path
 import pandas as pd
 
 
+try:
+    from IPython.display import display
+except ImportError:
+    def display(value: object) -> None:
+        """Print notebook previews when IPython is unavailable."""
+        print(value)
+
+
 # Pipeline paths
 EXECUTION_DIR = (
     Path(__file__).resolve().parent

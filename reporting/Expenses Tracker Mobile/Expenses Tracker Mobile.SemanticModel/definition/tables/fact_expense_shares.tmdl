@@ -1,0 +1,138 @@
+table fact_expense_shares
+	lineageTag: 1d177f02-74c0-46f2-b1ca-ec2cc4cb85fd
+
+	column expense_share_id
+		dataType: string
+		lineageTag: 8b06e89c-7c35-46b5-b470-d5789dc28ffd
+		summarizeBy: none
+		sourceColumn: expense_share_id
+
+	column expense_id
+		dataType: string
+		lineageTag: 7e12049c-bdbc-42ba-9bf7-fa591ab4bce2
+		summarizeBy: none
+		sourceColumn: expense_id
+
+	column trip_id
+		dataType: string
+		lineageTag: 51aa2a29-fa80-4140-825f-a1d59deb3157
+		summarizeBy: none
+		sourceColumn: trip_id
+
+	column traveler_id
+		dataType: string
+		lineageTag: d8a57d10-4a01-48d4-ad06-770e8d9abf35
+		summarizeBy: none
+		sourceColumn: traveler_id
+
+	column lender_traveler_id
+		dataType: string
+		lineageTag: 6388cb05-22ce-4252-8a97-1fbc1734bd45
+		summarizeBy: none
+		sourceColumn: lender_traveler_id
+
+	column trip
+		dataType: string
+		lineageTag: bed241c3-54c3-4b99-973b-1408b32a85e9
+		summarizeBy: none
+		sourceColumn: trip
+
+	column reason
+		dataType: string
+		lineageTag: 19ce42cc-0a6a-4ac4-8208-7fdf18673b38
+		summarizeBy: none
+		sourceColumn: reason
+
+	column expense_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4cf5a1e8-aeb5-4d0b-a572-6351e7e7b1d7
+		summarizeBy: none
+		sourceColumn: expense_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column expense_type
+		dataType: string
+		lineageTag: 5354bf6b-97c8-4318-a893-3baa80e8aa14
+		summarizeBy: none
+		sourceColumn: expense_type
+
+	column product
+		dataType: string
+		lineageTag: 1f589d51-29e3-42ae-b52e-1b59195f940a
+		summarizeBy: none
+		sourceColumn: product
+
+	column currency
+		dataType: string
+		lineageTag: 58651142-fe24-4fe8-a025-5cbe00b7e7cf
+		summarizeBy: none
+		sourceColumn: currency
+
+	column exchange_rate
+		dataType: double
+		lineageTag: 38350759-404d-4845-9058-291a9117025a
+		summarizeBy: none
+		sourceColumn: exchange_rate
+
+	column expense_amount_original
+		dataType: double
+		lineageTag: 198782a2-20f3-4a97-b358-293430ae2c12
+		summarizeBy: none
+		sourceColumn: expense_amount_original
+
+	column expense_amount_lps
+		dataType: double
+		lineageTag: 83881397-34b0-4c59-8732-403912d28120
+		summarizeBy: none
+		sourceColumn: expense_amount_lps
+
+	column expense_amount_usd
+		dataType: double
+		lineageTag: cf337a9a-e029-420a-bd7f-8976deef1b72
+		summarizeBy: none
+		sourceColumn: expense_amount_usd
+
+	column is_shared_expense
+		dataType: boolean
+		lineageTag: e71f91fc-3802-4b87-8813-7b2de778b871
+		summarizeBy: none
+		sourceColumn: is_shared_expense
+
+	column participant_count
+		dataType: int64
+		lineageTag: 6522305f-db42-48cb-a34b-d2c09d6733de
+		summarizeBy: none
+		sourceColumn: participant_count
+
+	column share_original
+		dataType: double
+		lineageTag: 37429ee0-49db-4145-967c-1fa9541d1fe9
+		summarizeBy: sum
+		sourceColumn: share_original
+
+	column share_lps
+		dataType: double
+		lineageTag: 396f61da-551d-44fb-9695-2e2f03d6c27f
+		summarizeBy: sum
+		sourceColumn: share_lps
+
+	column share_usd
+		dataType: double
+		lineageTag: 65917f33-25e3-4c55-92a8-49eed6cbfea6
+		summarizeBy: sum
+		sourceColumn: share_usd
+
+	partition fact_expense_shares = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(p_gold_folder & "\fact_expense_shares.csv"), [Delimiter = ",", Columns = 20, QuoteStyle = QuoteStyle.None]),
+					PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					ChangedType = Table.TransformColumnTypes(PromotedHeaders, {{"expense_share_id", type text}, {"expense_id", type text}, {"trip_id", type text}, {"traveler_id", type text}, {"lender_traveler_id", type text}, {"trip", type text}, {"reason", type text}, {"expense_date", type date}, {"expense_type", type text}, {"product", type text}, {"currency", type text}, {"exchange_rate", type number}, {"expense_amount_original", type number}, {"expense_amount_lps", type number}, {"expense_amount_usd", type number}, {"is_shared_expense", type logical}, {"participant_count", Int64.Type}, {"share_original", type number}, {"share_lps", type number}, {"share_usd", type number}})
+				in
+					ChangedType
+
+	annotation PBI_ResultType = Table
+

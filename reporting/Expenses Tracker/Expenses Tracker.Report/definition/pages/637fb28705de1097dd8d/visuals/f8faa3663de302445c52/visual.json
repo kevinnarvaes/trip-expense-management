@@ -19,13 +19,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "travelers"
+                      "Entity": "dim_travelers"
                     }
                   },
                   "Property": "traveler"
                 }
               },
-              "queryRef": "travelers.traveler",
+              "queryRef": "dim_travelers.traveler",
               "nativeQueryRef": "Potencial",
               "active": true,
               "displayName": "Potencial"
@@ -102,7 +102,7 @@
             }
           },
           "selector": {
-            "metadata": "travelers.traveler"
+            "metadata": "dim_travelers.traveler"
           }
         }
       ],
@@ -213,7 +213,7 @@
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "travelers"
+                "Entity": "dim_travelers"
               }
             },
             "Property": "traveler"

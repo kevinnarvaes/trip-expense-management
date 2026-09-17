@@ -1,37 +1,40 @@
 table Metrics
 	lineageTag: 9ea11599-2b96-4cf9-89bb-145f1927747c
 
-	measure 'Expenses HNL' = SUM(expense_shares[share_lps])
+	measure 'Expenses HNL' = SUM(fact_expense_shares[share_lps])
 		formatString: " L#,,0;(L#,,0);--"
 		lineageTag: 4f6972bb-ffbc-4209-99ad-d00a3d14d345
 
 		annotation PBI_FormatHint = {"isCustom":true}
 
-	measure 'Payments HNL' = SUM(payments[monto_lps])
+	measure 'Payments HNL' = SUM(fact_payments[amount_lps])
 		formatString: " L#,,0;(L#,,0);--"
 		lineageTag: f7132597-968d-4640-bf4f-7305c540df47
 
 		annotation PBI_FormatHint = {"isCustom":true}
 
-	measure 'Balanced Owed HNL' = SUM(balances[owed_lps])
+	measure 'Balanced Owed HNL' = SUM(fact_balances[owed_lps])
 		formatString: " L#,,0;(L#,,0);--"
 		lineageTag: 8c8bfe26-447f-42a0-914c-e62f38004943
 
 		annotation PBI_FormatHint = {"isCustom":true}
 
-	measure 'Balanced Paid HNL' = SUM(balances[paid_lps])
+	measure 'Balanced Paid HNL' = SUM(fact_balances[paid_lps])
 		formatString: " L#,,0;(L#,,0);--"
 		lineageTag: 90ebbb2f-b20d-4efd-b3a6-154bf0fea4cb
 
 		annotation PBI_FormatHint = {"isCustom":true}
 
-	measure 'Payment Received HNL' = SUM(balances[payment_received_lps])
+	measure 'Expense Balance HNL' = SUM(fact_balances[expense_balance_lps])
+		formatString: " L#,,0;(L#,,0);--"
+
+	measure 'Payment Received HNL' = SUM(fact_balances[payment_received_lps])
 		formatString: " L#,,0;(L#,,0);--"
 		lineageTag: 4d6aab26-9174-4a5a-85f0-a2ea005e80fe
 
 		annotation PBI_FormatHint = {"isCustom":true}
 
-	measure 'Net Balance HNL' = SUM(balances[net_balance_lps])
+	measure 'Net Balance HNL' = SUM(fact_balances[net_balance_lps])
 		formatString: " L#,,0;(L#,,0);--"
 		lineageTag: 704073d7-b55d-4c42-badd-5e79128c4336
 

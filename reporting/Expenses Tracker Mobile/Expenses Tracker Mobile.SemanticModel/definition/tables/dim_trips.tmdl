@@ -1,0 +1,54 @@
+table dim_trips
+	lineageTag: 643588f0-4b3f-4283-8bf4-06191dafe4ff
+
+	column trip_id
+		dataType: string
+		lineageTag: a4d4012f-07b5-438d-8dcd-6b670ec84efe
+		summarizeBy: none
+		sourceColumn: trip_id
+
+	column trip
+		dataType: string
+		lineageTag: a90f41a4-af90-42fc-a3b1-2dd7e83e509a
+		summarizeBy: none
+		sourceColumn: trip
+		sortByColumn: trip_id
+
+		changedProperty = SortByColumn
+
+	column destination
+		dataType: string
+		lineageTag: 67e7b1dd-f709-46b9-87f6-bbd74180db5b
+		summarizeBy: none
+		sourceColumn: destination
+
+	column start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 83dfe34f-88aa-4741-a3f3-7ed6f711f6d3
+		summarizeBy: none
+		sourceColumn: start_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 18a9507e-4567-43b1-a77b-b14e94eec98a
+		summarizeBy: none
+		sourceColumn: end_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dim_trips = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(p_gold_folder & "\dim_trips.csv"), [Delimiter = ",", Columns = 5, QuoteStyle = QuoteStyle.None]),
+					PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					ChangedType = Table.TransformColumnTypes(PromotedHeaders, {{"trip_id", type text}, {"trip", type text}, {"destination", type text}, {"start_date", type date}, {"end_date", type date}})
+				in
+					ChangedType
+
+	annotation PBI_ResultType = Table
+

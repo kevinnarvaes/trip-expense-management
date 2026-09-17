@@ -117,11 +117,28 @@ Examples:
 
 ### Gold
 
-Not implemented yet.
+Gold contains reporting-ready dimensional tables produced by checked-in SQL
+models executed with DuckDB over the Silver CSVs.
 
-Eventually it will contain reporting/analytics-ready datasets, likely using SQL and potentially a dimensional model.
+```text
+database/silver/*.csv
+        ↓
+transform_gold.py + transformations/sql/gold/*.sql
+        ↓
+database/gold/*.csv
+```
 
-Do not implement Gold until explicitly requested.
+Current tables:
+
+- `dim_travelers`
+- `dim_trips`
+- `fact_payments`
+- `fact_expense_shares`
+- `fact_balances`
+
+`fact_expense_shares` retains `expense_id` and the descriptive expense fields
+so reports can count distinct expenses and analyze category, product, and type
+without rejoining the Silver expense table.
 
 ## Current Repository Direction
 
@@ -176,11 +193,10 @@ Responsibilities:
 1. Read Bronze CSVs.
 2. Clean and standardize data.
 3. Generate technical expense IDs.
-4. Resolve `Todos`.
-5. Create `expense_shares`.
-6. Create `balances`.
-7. Validate results.
-8. Write Silver CSVs.
+4. Resolve traveler names to `*_traveler_id` foreign keys.
+5. Create the `trip_travelers` participation bridge.
+6. Validate results.
+7. Write Silver CSVs.
 
 Keep transformation functions modular so they can later be called by Airflow.
 
@@ -190,7 +206,8 @@ For `Debtor = Todos`, split equally among all real travelers.
 
 For a specific debtor, that traveler receives the full responsibility.
 
-The derived `expense_shares` dataset contains one row per responsible traveler per expense.
+Gold SQL derives `fact_expense_shares`, with one row per responsible traveler
+per expense.
 
 ## Balance Logic
 
@@ -198,7 +215,7 @@ The derived `expense_shares` dataset contains one row per responsible traveler p
 Net Balance = Amount Paid - Amount Owed
 ```
 
-Positive means the traveler paid more than their share. Negative means they owe more than they paid.
+Positive means the traveler paid more than their share. Negative means they owe more than they paid. Gold SQL creates this as `fact_balances`.
 
 At trip level:
 

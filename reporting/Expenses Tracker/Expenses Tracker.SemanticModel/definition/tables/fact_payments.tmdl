@@ -1,0 +1,63 @@
+table fact_payments
+
+	column payment_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: payment_id
+
+	column trip_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: trip_id
+
+	column debtor_traveler_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: debtor_traveler_id
+
+	column lender_traveler_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: lender_traveler_id
+
+	column trip
+		dataType: string
+		summarizeBy: none
+		sourceColumn: trip
+
+	column currency
+		dataType: string
+		summarizeBy: none
+		sourceColumn: currency
+
+	column exchange_rate
+		dataType: double
+		summarizeBy: none
+		sourceColumn: exchange_rate
+
+	column amount_original
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: amount_original
+
+	column amount_lps
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: amount_lps
+
+	column amount_usd
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: amount_usd
+
+	partition fact_payments = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(p_gold_folder & "\fact_payments.csv"), [Delimiter = ",", Columns = 10, QuoteStyle = QuoteStyle.None]),
+				PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				ChangedType = Table.TransformColumnTypes(PromotedHeaders, {{"payment_id", type text}, {"trip_id", type text}, {"debtor_traveler_id", type text}, {"lender_traveler_id", type text}, {"trip", type text}, {"currency", type text}, {"exchange_rate", type number}, {"amount_original", type number}, {"amount_lps", type number}, {"amount_usd", type number}})
+			in
+				ChangedType
+
+	annotation PBI_ResultType = Table

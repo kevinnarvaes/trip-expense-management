@@ -1,0 +1,23 @@
+table dim_travelers
+
+	column traveler_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: traveler_id
+
+	column traveler
+		dataType: string
+		summarizeBy: none
+		sourceColumn: traveler
+
+	partition dim_travelers = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(p_gold_folder & "\dim_travelers.csv"), [Delimiter = ",", Columns = 2, QuoteStyle = QuoteStyle.None]),
+				PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				ChangedType = Table.TransformColumnTypes(PromotedHeaders, {{"traveler_id", type text}, {"traveler", type text}})
+			in
+				ChangedType
+
+	annotation PBI_ResultType = Table

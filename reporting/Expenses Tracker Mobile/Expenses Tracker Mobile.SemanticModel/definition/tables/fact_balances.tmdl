@@ -1,0 +1,69 @@
+table fact_balances
+	lineageTag: b78ab649-9db7-46c6-b90f-0a078fc6938c
+
+	column balance_id
+		dataType: string
+		lineageTag: d726a993-9742-4bd0-937d-4fc294a28c4a
+		summarizeBy: none
+		sourceColumn: balance_id
+
+	column trip_id
+		dataType: string
+		lineageTag: 051c8588-d55a-4bad-b01d-abca677fd9ef
+		summarizeBy: none
+		sourceColumn: trip_id
+
+	column traveler_id
+		dataType: string
+		lineageTag: bb6a4735-0ed8-402f-993e-7d2f50c314a4
+		summarizeBy: none
+		sourceColumn: traveler_id
+
+	column paid_lps
+		dataType: double
+		lineageTag: d335bf66-00f7-4ca3-9a18-75f9effef127
+		summarizeBy: sum
+		sourceColumn: paid_lps
+
+	column owed_lps
+		dataType: double
+		lineageTag: a6fe2749-c8e8-4aa0-a4b9-18528497d17d
+		summarizeBy: sum
+		sourceColumn: owed_lps
+
+	column payment_sent_lps
+		dataType: double
+		lineageTag: 408e0e5b-8279-4895-91ab-015125df6d6a
+		summarizeBy: sum
+		sourceColumn: payment_sent_lps
+
+	column payment_received_lps
+		dataType: double
+		lineageTag: 8d9d644a-3d10-40b3-9824-5354850c9015
+		summarizeBy: sum
+		sourceColumn: payment_received_lps
+
+	column net_balance_lps
+		dataType: double
+		lineageTag: 70815d5b-5df9-4628-8c94-3b685bf251ce
+		summarizeBy: sum
+		sourceColumn: net_balance_lps
+
+	column expense_balance_lps
+		dataType: double
+		lineageTag: 363dc9a1-80c0-42ad-a674-c8d7f8f7bb09
+		summarizeBy: sum
+		sourceColumn: expense_balance_lps
+
+	partition fact_balances = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(p_gold_folder & "\fact_balances.csv"), [Delimiter = ",", Columns = 9, QuoteStyle = QuoteStyle.None]),
+					PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					ChangedType = Table.TransformColumnTypes(PromotedHeaders, {{"balance_id", type text}, {"trip_id", type text}, {"traveler_id", type text}, {"paid_lps", type number}, {"owed_lps", type number}, {"expense_balance_lps", type number}, {"payment_sent_lps", type number}, {"payment_received_lps", type number}, {"net_balance_lps", type number}})
+				in
+					ChangedType
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,58 @@
+table fact_balances
+
+	column balance_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: balance_id
+
+	column trip_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: trip_id
+
+	column traveler_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: traveler_id
+
+	column paid_lps
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: paid_lps
+
+	column owed_lps
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: owed_lps
+
+	column expense_balance_lps
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: expense_balance_lps
+
+	column payment_sent_lps
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: payment_sent_lps
+
+	column payment_received_lps
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: payment_received_lps
+
+	column net_balance_lps
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: net_balance_lps
+
+	partition fact_balances = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(p_gold_folder & "\fact_balances.csv"), [Delimiter = ",", Columns = 9, QuoteStyle = QuoteStyle.None]),
+				PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				ChangedType = Table.TransformColumnTypes(PromotedHeaders, {{"balance_id", type text}, {"trip_id", type text}, {"traveler_id", type text}, {"paid_lps", type number}, {"owed_lps", type number}, {"expense_balance_lps", type number}, {"payment_sent_lps", type number}, {"payment_received_lps", type number}, {"net_balance_lps", type number}})
+			in
+				ChangedType
+
+	annotation PBI_ResultType = Table

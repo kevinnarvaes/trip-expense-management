@@ -11,15 +11,16 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["balances","expense_shares","expenses","payments","travelers","trips","Metrics"]
+annotation PBI_QueryOrder = ["dim_trips","dim_travelers","fact_expense_shares","fact_payments","fact_balances","Metrics"]
 
-ref table trips
-ref table balances
-ref table expense_shares
-ref table expenses
-ref table payments
-ref table travelers
+ref table dim_trips
+ref table dim_travelers
+ref table fact_expense_shares
+ref table fact_payments
+ref table fact_balances
 ref table Metrics
 
 ref cultureInfo en-US
+
+expression p_gold_folder = "C:\\GitHub\\trip-expense-management\\data-pipelines\\database\\gold" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 

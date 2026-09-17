@@ -1,28 +1,34 @@
-relationship AutoDetected_acac4a90-4328-4627-9ba4-2d773bae6d15
-	fromColumn: payments.trip
-	toColumn: trips.trip
+relationship DimTripsFactExpenseShares
+	fromColumn: fact_expense_shares.trip_id
+	toColumn: dim_trips.trip_id
 
-relationship AutoDetected_cbab8620-2080-452a-962e-9c9caa93017c
-	fromColumn: balances.traveler
-	toColumn: travelers.traveler
+relationship DimTripsFactPayments
+	fromColumn: fact_payments.trip_id
+	toColumn: dim_trips.trip_id
 
-relationship AutoDetected_8a3e8bf1-65bc-4a56-b8a7-a151e42f72b1
-	fromColumn: expense_shares.expense_id
-	toColumn: expenses.expense_id
+relationship DimTripsFactBalances
+	fromColumn: fact_balances.trip_id
+	toColumn: dim_trips.trip_id
 
-relationship e9743842-ca54-6d41-6724-df0d506df2c1
-	fromColumn: expense_shares.debtor
-	toColumn: travelers.traveler
+relationship DimTravelersFactExpenseShares
+	fromColumn: fact_expense_shares.traveler_id
+	toColumn: dim_travelers.traveler_id
 
-relationship deb7e6a3-487a-f13c-659a-2ada12df6050
-	fromColumn: payments.debtor
-	toColumn: travelers.traveler
+relationship DimTravelersFactPaymentsDebtor
+	fromColumn: fact_payments.debtor_traveler_id
+	toColumn: dim_travelers.traveler_id
 
-relationship 1f625470-9873-41ea-0921-8eec5d43a827
-	fromColumn: balances.trip_id
-	toColumn: trips.id
+relationship DimTravelersFactBalances
+	fromColumn: fact_balances.traveler_id
+	toColumn: dim_travelers.traveler_id
 
-relationship ca102162-ce43-66a4-e867-291fe8a571f7
-	fromColumn: expense_shares.trip_id
-	toColumn: trips.id
+relationship DimTravelersFactExpenseSharesLender
+	fromColumn: fact_expense_shares.lender_traveler_id
+	toColumn: dim_travelers.traveler_id
+	isActive: false
+
+relationship DimTravelersFactPaymentsLender
+	fromColumn: fact_payments.lender_traveler_id
+	toColumn: dim_travelers.traveler_id
+	isActive: false
 

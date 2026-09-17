@@ -1,0 +1,40 @@
+table dim_trips
+
+	column trip_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: trip_id
+
+	column trip
+		dataType: string
+		summarizeBy: none
+		sourceColumn: trip
+
+	column destination
+		dataType: string
+		summarizeBy: none
+		sourceColumn: destination
+
+	column start_date
+		dataType: dateTime
+		formatString: Long Date
+		summarizeBy: none
+		sourceColumn: start_date
+
+	column end_date
+		dataType: dateTime
+		formatString: Long Date
+		summarizeBy: none
+		sourceColumn: end_date
+
+	partition dim_trips = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(p_gold_folder & "\dim_trips.csv"), [Delimiter = ",", Columns = 5, QuoteStyle = QuoteStyle.None]),
+				PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				ChangedType = Table.TransformColumnTypes(PromotedHeaders, {{"trip_id", type text}, {"trip", type text}, {"destination", type text}, {"start_date", type date}, {"end_date", type date}})
+			in
+				ChangedType
+
+	annotation PBI_ResultType = Table

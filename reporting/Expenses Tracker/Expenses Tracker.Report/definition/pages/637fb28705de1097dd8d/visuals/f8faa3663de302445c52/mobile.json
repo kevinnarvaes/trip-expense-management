@@ -20,7 +20,7 @@
           }
         },
         "selector": {
-          "metadata": "travelers.traveler"
+          "metadata": "dim_travelers.traveler"
         }
       },
       {

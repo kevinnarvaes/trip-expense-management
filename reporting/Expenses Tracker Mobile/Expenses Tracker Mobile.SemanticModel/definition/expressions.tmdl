@@ -1,0 +1,5 @@
+expression p_gold_folder = "C:\\GitHub\\trip-expense-management\\data-pipelines\\database\\gold" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 7dc65358-5cf9-4cd4-b0aa-ae17bb176c64
+
+	annotation PBI_ResultType = Text
+

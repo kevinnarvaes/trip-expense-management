@@ -1,0 +1,75 @@
+table fact_payments
+	lineageTag: 48d05413-634c-48b0-82e7-49bebaa555a5
+
+	column payment_id
+		dataType: string
+		lineageTag: 8597c268-48d8-4044-a711-912c77855cf9
+		summarizeBy: none
+		sourceColumn: payment_id
+
+	column trip_id
+		dataType: string
+		lineageTag: 0c7d3e3d-d1ab-449d-86f7-a25ec10be516
+		summarizeBy: none
+		sourceColumn: trip_id
+
+	column debtor_traveler_id
+		dataType: string
+		lineageTag: 7c3071a4-dd56-493c-8bef-2e76681c6713
+		summarizeBy: none
+		sourceColumn: debtor_traveler_id
+
+	column lender_traveler_id
+		dataType: string
+		lineageTag: d53dce69-7693-4632-8935-cde675ca54bf
+		summarizeBy: none
+		sourceColumn: lender_traveler_id
+
+	column trip
+		dataType: string
+		lineageTag: de2db342-2df1-4bd9-83c6-315353db7cea
+		summarizeBy: none
+		sourceColumn: trip
+
+	column currency
+		dataType: string
+		lineageTag: d9394cd7-bf5f-4aaa-bcec-25eb90724c50
+		summarizeBy: none
+		sourceColumn: currency
+
+	column exchange_rate
+		dataType: double
+		lineageTag: f22b17ce-247c-42b5-809c-47b43d3a9cde
+		summarizeBy: none
+		sourceColumn: exchange_rate
+
+	column amount_original
+		dataType: double
+		lineageTag: 51266a06-59fa-4bef-9549-4c2beb82bbf5
+		summarizeBy: sum
+		sourceColumn: amount_original
+
+	column amount_lps
+		dataType: double
+		lineageTag: d478373b-9324-42c8-8eb8-eb9ab2ade75d
+		summarizeBy: sum
+		sourceColumn: amount_lps
+
+	column amount_usd
+		dataType: double
+		lineageTag: 0de91b20-4d97-472f-adb6-f0a9d7b5186f
+		summarizeBy: sum
+		sourceColumn: amount_usd
+
+	partition fact_payments = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(p_gold_folder & "\fact_payments.csv"), [Delimiter = ",", Columns = 10, QuoteStyle = QuoteStyle.None]),
+					PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					ChangedType = Table.TransformColumnTypes(PromotedHeaders, {{"payment_id", type text}, {"trip_id", type text}, {"debtor_traveler_id", type text}, {"lender_traveler_id", type text}, {"trip", type text}, {"currency", type text}, {"exchange_rate", type number}, {"amount_original", type number}, {"amount_lps", type number}, {"amount_usd", type number}})
+				in
+					ChangedType
+
+	annotation PBI_ResultType = Table
+

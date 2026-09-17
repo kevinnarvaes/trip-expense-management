@@ -1,0 +1,27 @@
+table dim_travelers
+	lineageTag: 541ef9ad-3261-4ebd-bcd0-5d7f02ee9d0f
+
+	column traveler_id
+		dataType: string
+		lineageTag: 2cb1b899-ba9d-4105-9f5b-bce13b2cd160
+		summarizeBy: none
+		sourceColumn: traveler_id
+
+	column traveler
+		dataType: string
+		lineageTag: 3453c927-3425-4dc9-b261-2a5f91d80f41
+		summarizeBy: none
+		sourceColumn: traveler
+
+	partition dim_travelers = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(p_gold_folder & "\dim_travelers.csv"), [Delimiter = ",", Columns = 2, QuoteStyle = QuoteStyle.None]),
+					PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+					ChangedType = Table.TransformColumnTypes(PromotedHeaders, {{"traveler_id", type text}, {"traveler", type text}})
+				in
+					ChangedType
+
+	annotation PBI_ResultType = Table
+
